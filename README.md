@@ -4,6 +4,13 @@
 A simple test suite for simple Tip Calculator Android app (FasTip.apk) using Appium and Java.
 All scenarios are independent and can be run in any order. All inputs are provided through Feature file examples.
 
+## Test Summary: ##
+There are two feature files:
+1. Using Default Tip Percentage (FasTipTestsCustom.feature)
+2. Using Custom Tip Percentage (FasTipTestsDefault.feature)
+
+Each feature file has one scenario outline which executes for each input combination (For e.g. Positive whole numbers, negative numbers, floating point numbers, etc). More information can be found inside the feature files.
+
 ## Technology Stack:
 - Java SDK (1.8)
 - Appium Server (1.9.1)
