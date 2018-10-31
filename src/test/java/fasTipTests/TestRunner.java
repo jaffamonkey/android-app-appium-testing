@@ -17,4 +17,5 @@ import org.junit.runner.RunWith;
         plugin = { "pretty", "html:target/htmlreport"})
 
 public class TestRunner {
+
 }

@@ -43,7 +43,6 @@ public class AndroidController {
             }
             return driver;
         } else return driver;
-
     }
 
     private static void setCapabilitiesForAvdApp(String appName) {
@@ -54,14 +53,12 @@ public class AndroidController {
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         capabilities.setCapability("appPackage", "org.traeg.fastip");
         capabilities.setCapability("appActivity", "org.traeg.fastip.MainActivity");
-
     }
 
     private static void setCapabilitiesForRealApp() {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "device");
         capabilities.setCapability("appPackage", "ae.propertyfinder.propertyfinder");
         capabilities.setCapability("appActivity", "ae.propertyfinder.consumer.ui.activity.ConfigurationActivity");
-
     }
 
     private static void setCommonCapabilities() {

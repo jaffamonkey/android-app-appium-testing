@@ -8,4 +8,6 @@ package fasTipTests.pages.locators;
  */
 
 public interface SettingsPageLocators {
+    String txtTipPercentageSettingId = "tipPercentageEditText";
+    String btnSaveTipPercentageSettingId = "saveSettingsButton";
 }

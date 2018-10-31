@@ -41,6 +41,7 @@ public class FasTipMainPage extends PageObject {
     @AndroidFindBy(id = MainPageLocators.lblTotalAmountId)
     private AndroidElement totalAmountLabel;
 
+
     public AndroidElement getSettingsIcon() { return settingsIcon; }
     public AndroidElement getAppTitle(){
         return appTitleLabel;
@@ -50,6 +51,7 @@ public class FasTipMainPage extends PageObject {
     public AndroidElement getTipPercentLabel() { return tipPercentLabel; }
     public AndroidElement getTipAmountLabel() { return tipAmountLabel; }
     public AndroidElement getTotalAmountLabel() { return totalAmountLabel; }
+
 
 
 }
