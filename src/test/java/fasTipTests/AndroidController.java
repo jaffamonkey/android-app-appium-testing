@@ -13,11 +13,12 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class AndroidController {
+public class AndroidController extends BaseTest {
 
     private AndroidController() {
     }
@@ -26,16 +27,12 @@ public class AndroidController {
     private static AndroidDriver<AndroidElement> driver;
 
 
-    public static AndroidDriver<AndroidElement> prepareAndroidForAppium(boolean isAvdApp, String appName, String serverAddress, String serverPort) {
+    public static AndroidDriver<AndroidElement> prepareAndroidForAppium(String appName, String serverAddress, String serverPort) {
 
         //mandatory capabilities
         if (driver == null) {
-            setCommonCapabilities();
-            if (isAvdApp) {
-                setCapabilitiesForAvdApp(appName);
-            } else {
-                setCapabilitiesForRealApp();
-            }
+            setCapabilitiesForApp(appName);
+
             try {
                 driver = new AndroidDriver<>(new URL("http://" + serverAddress + ":" + serverPort + "/wd/hub"), capabilities);
             } catch (MalformedURLException e) {
@@ -45,24 +42,17 @@ public class AndroidController {
         } else return driver;
     }
 
-    private static void setCapabilitiesForAvdApp(String appName) {
+    // Capabilities for Emulator
+    private static void setCapabilitiesForApp(String appName) {
         File appDir = new File("src/test/resources/apps/");
         File app = new File(appDir, appName);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus_5X");
-        //other caps
-        capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-        capabilities.setCapability("appPackage", "org.traeg.fastip");
-        capabilities.setCapability("appActivity", "org.traeg.fastip.MainActivity");
-    }
-
-    private static void setCapabilitiesForRealApp() {
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "device");
-        capabilities.setCapability("appPackage", "ae.propertyfinder.propertyfinder");
-        capabilities.setCapability("appActivity", "ae.propertyfinder.consumer.ui.activity.ConfigurationActivity");
-    }
-
-    private static void setCommonCapabilities() {
+        String avdName = propertyValues.getString("avd_name");
+        capabilities.setCapability("appPackage", propertyValues.getString("app_package_name"));
+        capabilities.setCapability("appActivity", propertyValues.getString("app_activity"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, avdName);
+        capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
     }
 }

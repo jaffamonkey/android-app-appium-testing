@@ -52,6 +52,4 @@ public class FasTipMainPage extends PageObject {
     public AndroidElement getTipAmountLabel() { return tipAmountLabel; }
     public AndroidElement getTotalAmountLabel() { return totalAmountLabel; }
 
-
-
 }

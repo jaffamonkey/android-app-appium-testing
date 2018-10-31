@@ -20,8 +20,6 @@ public class FasTipTestSteps extends BaseTest {
     private FasTipMainPage fasTipMainPage = new FasTipMainPage(driver);
     private FasTipSettingsPage fasTipSettingsPage = new FasTipSettingsPage(driver);
 
-//    private static Double expectedTipAmount = 0.00;
-//    private static Double expectedTotalBillValue = 0.00;
     private static Double expectedTipPercentage = 15.00;
     private static Double expectedTipAmount = 0.00;
     private DecimalFormat twoDecimalFormat = new DecimalFormat("#0.00");

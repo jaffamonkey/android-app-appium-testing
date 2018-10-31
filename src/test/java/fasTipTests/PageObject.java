@@ -15,14 +15,11 @@ import java.time.Duration;
 
 public class PageObject {
 
-    protected AndroidDriver<AndroidElement> driver = BaseTest.driver;
-
     public PageObject(AndroidDriver<AndroidElement> driver) {
         driver = BaseTest.driver;
         Duration duration = Duration.ofSeconds(5);
 
         PageFactory.initElements(new AppiumFieldDecorator(driver, duration), this);
     }
-
 
 }

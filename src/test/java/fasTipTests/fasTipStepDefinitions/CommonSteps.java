@@ -28,7 +28,7 @@ public class CommonSteps extends BaseTest {
         String appName = propertyValues.getString("app_name");
         String serverAddress = propertyValues.getString("server_address");
         String serverPort = propertyValues.getString("server_port");
-        driver = AndroidController.prepareAndroidForAppium(true, appName, serverAddress, serverPort);
+        driver = AndroidController.prepareAndroidForAppium(appName, serverAddress, serverPort);
     }
 
     @After("@TestWithCustomPercentage")

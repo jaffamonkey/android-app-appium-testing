@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class BaseTest {
 
     protected static AndroidDriver<AndroidElement> driver;
-    protected ResourceBundle propertyValues;
+    protected static ResourceBundle propertyValues;
     protected SoftAssertions softly = new SoftAssertions();
 
     public BaseTest() {
