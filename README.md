@@ -17,6 +17,7 @@ Each feature file has one scenario outline which executes for each input combina
 - Cucumber BDD
 - Junit (For Runner)
 - AssertJ (For Assertions)
+- PageFactory (Page Object Model implementation)
 
 ## Supported Platforms:
 Tests should run in same way on Android AVD (Android Virtual Device) and any real device. 
