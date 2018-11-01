@@ -38,10 +38,10 @@ Feature:  FasTip app calculates Tips using CONFIGURED Tip percentage
 
     Examples:
       | type                                 | Bill Amount | Tip Percent |
-      | positive                             | 100         | 10.50       |
+      | positive                             | 100         | 15.7512     |
       | negative                             | -100        | 17          |
       | zero                                 | 0           | 10.50       |
-      | positive floating                    | 43.25       | 7.5         |
+      | positive floating                    | 43.25       | 7.51        |
       | negative floating                    | 0.45        | 0.00        |
       | positive floating more than 2 digits | 34.56156    | 50.00       |
-      | positive very large number           | 1241251     | 5.50        |
+      | positive very large number           | 1241251     | 5.505       |

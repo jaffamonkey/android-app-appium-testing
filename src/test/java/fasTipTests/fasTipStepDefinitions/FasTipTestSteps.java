@@ -20,6 +20,7 @@ public class FasTipTestSteps extends BaseTest {
     private FasTipMainPage fasTipMainPage = new FasTipMainPage(driver);
     private FasTipSettingsPage fasTipSettingsPage = new FasTipSettingsPage(driver);
 
+    // Static values to share among steps for calculation
     private static Double expectedTipPercentage = 15.0;
     private static Double expectedTipAmount = 0.00;
 
@@ -63,11 +64,11 @@ public class FasTipTestSteps extends BaseTest {
         tipTextbox.sendKeys(tipPercentValue);
         Double tipPercentValueDbl = Double.parseDouble(tipPercentValue);
         fasTipSettingsPage.getSaveTipPercentageButton().click();
-        expectedTipPercentage = Double.parseDouble(String.format("%.2f", tipPercentValueDbl));
+        expectedTipPercentage = tipPercentValueDbl;
     }
 
     @Then("^Validate that \"([^\"]*)\" has correct value against provided ([^\"]*)$")
-    public void validateThatHasCorrectValue(String valueField, Double billValue) throws ParseException {
+    public void validateThatHasCorrectValue(String valueField, Double billValue) {
 
         AndroidElement valueLabel;
 
@@ -75,22 +76,35 @@ public class FasTipTestSteps extends BaseTest {
 
         switch (valueField) {
             case "Tip Percentage":
+                // Get value from UI
                 valueLabel = fasTipMainPage.getTipPercentLabel();
-                String actualTipPercentage =valueLabel.getText().replaceAll("%","");
+                // Remove % sign to get numeric value
+                Double actualTipPercentageDbl = Double.parseDouble(valueLabel.getText().replaceAll("%",""));
+                // Format percentage value to 2 digits for comparison
+                String actualTipPercentage = String.format("%.2f", actualTipPercentageDbl);
+                String expectedTipPercentageFormatted = String.format("%.2f", expectedTipPercentage);
+                // Perform assertion
                 softly.assertThat(actualTipPercentage)
-                        .isEqualTo(expectedTipPercentage.toString());
+                        .isEqualTo(expectedTipPercentageFormatted);
                 break;
             case "Tip Amount":
+                // Get value from UI
                 valueLabel = fasTipMainPage.getTipAmountLabel();
+                // Calculate Amount using formula Bill Value * Tip Percentage / 100
                 expectedTipAmount = billValue * expectedTipPercentage / 100;
+                // Remove $ sign and get numeric value for assertion
                 String actualTipAmount = valueLabel.getText().replaceAll("\\$","");
                 Double actualTipAmountValue = Double.valueOf(actualTipAmount);
+                // Perform assertion
                 softly.assertThat(String.format("%.2f",actualTipAmountValue))
                         .isEqualTo(String.format("%.2f",expectedTipAmount));
                 break;
             case "Total Amount":
+                // Get value from UI
                 valueLabel = fasTipMainPage.getTotalAmountLabel();
+                // Remove $ sign to get numeric value
                 String actualTotalAmount = valueLabel.getText().replaceAll("\\$","");
+                // Calculate total bull using formula: Total Bill = Bill Value + Tip Amount calculated earlier
                 expectedTotalBillValue = billValue + expectedTipAmount;
                 softly.assertThat(actualTotalAmount)
                         .isEqualTo(String.format("%.2f",expectedTotalBillValue));
