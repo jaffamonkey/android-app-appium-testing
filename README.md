@@ -51,8 +51,8 @@ To change environment configurations, you need to edit ```fasTipAndroidTests/src
 - Specific Feature: Change features plugin value in @CucumberOptions as below and run TestRunner.java: ```features="src/test/resources/<FeatureFileName>.feature"```
 
 ### Via Command Line (Maven):
-- All tests: mvn test
-- Specific Features: mvn test -Dcucumber.options="--tags @CustomPercentage" (This will run scenario using custom percentage as Tip percentage)
+- All tests: ```mvn test```
+- Specific Features: ```mvn test -Dcucumber.options="--tags @CustomPercentage"``` (This will run scenario using custom percentage as Tip percentage)
 
 ## Reports:
 For simplicity, only cucumber native report is generated at ```target/htmlreport/index.html```
