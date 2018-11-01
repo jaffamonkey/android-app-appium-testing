@@ -1,4 +1,4 @@
-Feature:  FasTip app calculates Tips using DEFAULT Tip percentage value and displays billed amount along with tip details
+Feature:  FasTip app calculates Tips using DEFAULT Tip percentage
 
   # Following values should be displayed:
   #	Tip Percentage (As configured in Settings)

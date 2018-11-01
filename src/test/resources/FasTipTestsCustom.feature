@@ -1,4 +1,4 @@
-Feature:  FasTip app calculates Tips using configured Tip percentage value and displays billed amount along with tip details
+Feature:  FasTip app calculates Tips using CONFIGURED Tip percentage
 
     # Test Validation Points:
       # Following values should be calculated and displayed correct when any Customized value of Tip Percentage is used in the App:
@@ -26,7 +26,7 @@ Feature:  FasTip app calculates Tips using configured Tip percentage value and d
     Given FasTip app Bill Calculator page is open
 
   @CustomPercentage
-  Scenario Outline: Verify that FasTip sets Tip percentage according to value provided in Settings
+  Scenario Outline: Verify that FasTip uses Tip percentage configured in Settings
 
     And Settings page is opened
     And Tip percentage is set as <Tip Percent>
@@ -44,4 +44,4 @@ Feature:  FasTip app calculates Tips using configured Tip percentage value and d
       | positive floating                    | 43.25       | 7.5         |
       | negative floating                    | 0.45        | 0.00        |
       | positive floating more than 2 digits | 34.56156    | 50.00       |
-      | positive very large number           | 1241250     | 5.00        |
+      | positive very large number           | 1241251     | 5.50        |

@@ -8,7 +8,6 @@ package fasTipTests.fasTipStepDefinitions;
  * @author Haris Saleem
  */
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -31,7 +30,7 @@ public class CommonSteps extends BaseTest {
         driver = AndroidController.prepareAndroidForAppium(appName, serverAddress, serverPort);
     }
 
-    @After("@TestWithCustomPercentage")
+    @After("@CustomPercentage")
     public void resetApp(){
         driver.resetApp();
     }

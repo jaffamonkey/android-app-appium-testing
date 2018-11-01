@@ -11,6 +11,8 @@ package fasTipTests;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.assertj.core.api.SoftAssertions;
+
+import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -19,6 +21,7 @@ public class BaseTest {
     protected static AndroidDriver<AndroidElement> driver;
     protected static ResourceBundle propertyValues;
     protected SoftAssertions softly = new SoftAssertions();
+    protected DecimalFormat twoDecimalFormat;
 
     public BaseTest() {
         Locale locale = new Locale("en", "US");
