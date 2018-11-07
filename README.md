@@ -22,6 +22,7 @@ Each feature file has one scenario outline which executes for each input combina
 ## Supported Platforms:
 Tests should run in same way on Android AVD (Android Virtual Device) and any real device. 
 
+
 ## Pre-Requisites:
 ### Appium Server Initialization:
 - If there is only one device connected via adb, simply run appium server with ```appium``` on Terminal or use Appium Desktop
@@ -46,14 +47,11 @@ To change environment configurations, you need to edit ```fasTipAndroidTests/src
 - ```app_package_name```: Package name of the App
 - ```app_activity```: Activity Name of the App
 
-### Via IDE (IntelliJ IDEA):
-- All tests: Simply run the TestRunner.java class
-- Specific Feature: Change features plugin value in @CucumberOptions as below and run TestRunner.java: ```features="src/test/resources/<FeatureFileName>.feature"```
-
 ### Via Command Line (Maven):
+- In seperate terminal window start appium: ```appium``
+- In seperate terminal window start appium (eg):```/Users/[user]/Library/Android/sdk/tools/emulator  -netdelay none -netspeed full -avd Nexus_5X_API_27```
 - All tests: ```mvn test```
-- Specific Features: ```mvn test -Dcucumber.options="--tags @CustomPercentage"``` (This will run scenario using custom percentage as Tip percentage)
+- Specific Features: ```mvn test -Dcucumber.options="--tags @CustomPercentage"```
 
 ## Reports:
 For simplicity, only cucumber native report is generated at ```target/htmlreport/index.html```
-
