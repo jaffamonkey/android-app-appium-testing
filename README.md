@@ -49,7 +49,7 @@ To change environment configurations, you need to edit ```fasTipAndroidTests/src
 
 ### Via Command Line (Maven):
 - In seperate terminal window start appium: ```appium``
-- In seperate terminal window start appium (eg):```/Users/[user]/Library/Android/sdk/tools/emulator  -netdelay none -netspeed full -avd Nexus_5X_API_27```
+- In seperate terminal window start emulator (eg):```/Users/[user]/Library/Android/sdk/tools/emulator  -netdelay none -netspeed full -avd Nexus_5X_API_27```
 - All tests: ```mvn test```
 - Specific Features: ```mvn test -Dcucumber.options="--tags @CustomPercentage"```
 
